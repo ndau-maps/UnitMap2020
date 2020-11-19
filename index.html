@@ -8,7 +8,6 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-search.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -32,7 +31,6 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="js/leaflet-search.js"></script>
         <script src="data/NeonatalODN_1.js"></script>
         <script src="data/ChildrensHospitals_2.js"></script>
         <script src="data/Hospices_3.js"></script>
@@ -41,8 +39,8 @@
         <script src="data/SCBU_6.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:10, minZoom:1
-        }).fitBounds([[47.39440580480708,-22.143437437037207],[61.71166110742842,22.952835023822388]]);
+            zoomControl:true, maxZoom:10, minZoom:5
+        }).fitBounds([[47.60810710640934,-24.354124336812692],[61.65034256348467,20.734975573923407]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -56,7 +54,7 @@
             pane: 'pane_OpenStreetMap_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 1,
+            minZoom: 5,
             maxZoom: 10,
             minNativeZoom: 0,
             maxNativeZoom: 19
@@ -406,13 +404,6 @@
         var baseMaps = {};
         L.control.layers(baseMaps,{'<img src="legend/SCBU_6.png" /> SCBU': layer_SCBU_6,'<img src="legend/NICU_5.png" /> NICU': layer_NICU_5,'<img src="legend/LNU_4.png" /> LNU': layer_LNU_4,'<img src="legend/Hospices_3.png" /> Hospices': layer_Hospices_3,'<img src="legend/ChildrensHospitals_2.png" /> Children\'s Hospitals': layer_ChildrensHospitals_2,'<img src="legend/NeonatalODN_1.png" /> Neonatal ODN': layer_NeonatalODN_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
         setBounds();
-        map.addControl(new L.Control.Search({
-            layer: layer_ChildrensHospitals_2,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'ODN Name'}));
-        document.getElementsByClassName('search-button')[0].className +=
-         ' fa fa-binoculars';
         </script>
     </body>
 </html>
