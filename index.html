@@ -15,10 +15,99 @@
             padding: 0;
             margin: 0;
         }
+        .lightbox {
+                display: none;
+                padding: 30px 30px 30px 30px;
+                overflow: auto;
+                background-color: lightgray;
+                
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                z-index: 1000000;
+            }
+
+            .lightbox-revealer {
+                display: none;
+                padding: 0px 20px 0px 20px;
+                overflow: auto;
+                background-color: lightgray;
+                position: absolute;
+                left: 10%;
+                top: 5%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                z-index: 1000000;
+            }
+            .lightbox-revealer:hover,
+            .lightbox-revealer:focus {
+                color: #999;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            p.lightbox-text {
+                font: 12px Helvetica, sans-serif;
+            }
+
+            .close-lightbox {
+                color: white;
+                position: absolute;
+                top: 10px;
+                right: 25px;
+                font-size: 35px;
+                font-weight: bold;
+            }
+
+            .close-lightbox:hover,
+            .close-lightbox:focus {
+                color: #999;
+                text-decoration: none;
+                cursor: pointer;
+            }
         </style>
         <title></title>
     </head>
     <body>
+		<div id="Lightbox-revealer" class="lightbox-revealer" onclick="openLightbox()">
+            <p class="lightbox-text">
+                <b>Show Info</b>
+            </p>
+        </div>
+        <div id="Lightbox" class="lightbox">
+            <span class="close-lightbox pointer" onclick="closeLightbox()">&times;</span>
+            <p class="lightbox-text">
+                <b>Location of Neonatal Units, Children's Hospitals with Neonatal Surgical Care, and Hospices in the UK</b>
+            </p>
+            <p class="lightbox-text">
+                (Compatible with latest versions of Internet browsers only.) 
+            </p>
+            <p class="lightbox-text">
+                Neonatal units in England are organised into managed Operational Delivery Networks (ODN). 
+            </p>
+            <p class="lightbox-text">
+                Click on each neonatal unit, hospital or hospice icon to display additional information. 
+            </p>
+            <p class="lightbox-text">
+                This resource was developed for the UK Neonatal Collaborative by the Neonatal Data Analysis Unit.  
+            </p>
+            <p class="lightbox-text">
+                Please contact Richard Colquhoun at <a href="mailto:ndau@imperial.ac.uk">ndau@imperial.ac.uk</a> if you wish to notify us of any changes or errors.
+            </p>
+        </div>
+        <script>
+            openLightbox();
+            function openLightbox() {
+                document.getElementById('Lightbox').style.display = 'block';
+                document.getElementById('Lightbox-revealer').style.display = 'none';
+            }
+            function closeLightbox() {
+                document.getElementById('Lightbox').style.display = 'none';
+                document.getElementById('Lightbox-revealer').style.display = 'block';
+            };
+        </script>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
