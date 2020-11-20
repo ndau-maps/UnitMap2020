@@ -31,7 +31,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Simplified_1.js"></script>
+        <script src="data/NeonatalODN_1.js"></script>
         <script src="data/ChildrensHospitals_2.js"></script>
         <script src="data/Hospices_3.js"></script>
         <script src="data/LNU_4.js"></script>
@@ -39,8 +39,8 @@
         <script src="data/SCBU_6.js"></script>
         <script>
         var map = L.map('map', {
-            zoomControl:true, maxZoom:10, minZoom:5
-        }).fitBounds([[49.2771018627239,-9.37236654372867],[56.122246533542786,10.39326485286402]]);
+            zoomControl:true, maxZoom:10, minZoom:3
+        }).fitBounds([[47.284608193006584,-23.84755793939706],[61.18672241759674,20.293653765066836]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -54,14 +54,14 @@
             pane: 'pane_OpenStreetMap_0',
             opacity: 1.0,
             attribution: '',
-            minZoom: 5,
+            minZoom: 3,
             maxZoom: 10,
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
         layer_OpenStreetMap_0;
         map.addLayer(layer_OpenStreetMap_0);
-        function pop_Simplified_1(feature, layer) {
+        function pop_NeonatalODN_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['ODN Name'] !== null ? autolinker.link(feature.properties['ODN Name'].toLocaleString()) : '') + '</td>\
@@ -70,9 +70,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Simplified_1_0() {
+        function style_NeonatalODN_1_0() {
             return {
-                pane: 'pane_Simplified_1',
+                pane: 'pane_NeonatalODN_1',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -81,24 +81,24 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(190,207,80,1.0)',
+                fillColor: 'rgba(196,163,235,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Simplified_1');
-        map.getPane('pane_Simplified_1').style.zIndex = 401;
-        map.getPane('pane_Simplified_1').style['mix-blend-mode'] = 'normal';
-        var layer_Simplified_1 = new L.geoJson(json_Simplified_1, {
+        map.createPane('pane_NeonatalODN_1');
+        map.getPane('pane_NeonatalODN_1').style.zIndex = 401;
+        map.getPane('pane_NeonatalODN_1').style['mix-blend-mode'] = 'normal';
+        var layer_NeonatalODN_1 = new L.geoJson(json_NeonatalODN_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Simplified_1',
-            layerName: 'layer_Simplified_1',
-            pane: 'pane_Simplified_1',
-            onEachFeature: pop_Simplified_1,
-            style: style_Simplified_1_0,
+            dataVar: 'json_NeonatalODN_1',
+            layerName: 'layer_NeonatalODN_1',
+            pane: 'pane_NeonatalODN_1',
+            onEachFeature: pop_NeonatalODN_1,
+            style: style_NeonatalODN_1_0,
         });
-        bounds_group.addLayer(layer_Simplified_1);
-        map.addLayer(layer_Simplified_1);
+        bounds_group.addLayer(layer_NeonatalODN_1);
+        map.addLayer(layer_NeonatalODN_1);
         function pop_ChildrensHospitals_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -402,7 +402,7 @@
         bounds_group.addLayer(layer_SCBU_6);
         map.addLayer(layer_SCBU_6);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/SCBU_6.png" /> SCBU': layer_SCBU_6,'<img src="legend/NICU_5.png" /> NICU': layer_NICU_5,'<img src="legend/LNU_4.png" /> LNU': layer_LNU_4,'<img src="legend/Hospices_3.png" /> Hospices': layer_Hospices_3,'<img src="legend/ChildrensHospitals_2.png" /> Children\'s Hospitals': layer_ChildrensHospitals_2,'<img src="legend/Simplified_1.png" /> Simplified': layer_Simplified_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/SCBU_6.png" /> SCBU': layer_SCBU_6,'<img src="legend/NICU_5.png" /> NICU': layer_NICU_5,'<img src="legend/LNU_4.png" /> LNU': layer_LNU_4,'<img src="legend/Hospices_3.png" /> Hospices': layer_Hospices_3,'<img src="legend/ChildrensHospitals_2.png" /> Children\'s Hospitals': layer_ChildrensHospitals_2,'<img src="legend/NeonatalODN_1.png" /> Neonatal ODN': layer_NeonatalODN_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
