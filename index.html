@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
-			
 			.lightbox {
                 display: none;
                 padding: 30px 30px 30px 30px;
@@ -62,7 +61,6 @@
                 text-decoration: none;
                 cursor: pointer;
             }
-			
         html, body, #map {
             width: 100%;
             height: 100%;
@@ -73,8 +71,7 @@
         <title></title>
     </head>
     <body>
-		
-		<div id="Lightbox-revealer" class="lightbox-revealer" onclick="openLightbox()">
+		 <div id="Lightbox-revealer" class="lightbox-revealer" onclick="openLightbox()">
             <p class="lightbox-text">
                 <b>Show Info</b>
             </p>
@@ -91,7 +88,7 @@
                 Neonatal units in England are organised into managed Operational Delivery Networks (ODN). 
             </p>
             <p class="lightbox-text">
-                Click on each neonatal unit, hospital or hospice icon to display additional information. Expand the legend in the upper righthand corner to control which layers are visible.
+                Click on each neonatal unit, hospital or hospice icon to display additional information. Expand the legend in the upper righthand corner to control which layers are visible. 
             </p>
             <p class="lightbox-text">
                 This resource was developed for the UK Neonatal Collaborative by the Neonatal Data Analysis Unit.  
@@ -111,7 +108,6 @@
                 document.getElementById('Lightbox-revealer').style.display = 'block';
             };
         </script>
-		
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -133,7 +129,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:10, minZoom:3
-        }).fitBounds([[47.284608193006584,-23.84755793939706],[61.18672241759674,20.293653765066836]]);
+        }).fitBounds([[46.8422348065988,-20.37498444210371],[61.16499594168178,23.579741968401773]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -166,14 +162,14 @@
         function style_NeonatalODN_1_0() {
             return {
                 pane: 'pane_NeonatalODN_1',
-                opacity: 1,
+                opacity: 0.7,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.7,
                 fillColor: 'rgba(196,163,235,1.0)',
                 interactive: true,
             }
