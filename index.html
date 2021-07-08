@@ -71,7 +71,7 @@
         <title></title>
     </head>
     <body>
-		 <div id="Lightbox-revealer" class="lightbox-revealer" onclick="openLightbox()">
+		<div id="Lightbox-revealer" class="lightbox-revealer" onclick="openLightbox()">
             <p class="lightbox-text">
                 <b>Show Info</b>
             </p>
@@ -123,13 +123,13 @@
         <script src="data/NeonatalODN_1.js"></script>
         <script src="data/ChildrensHospitals_2.js"></script>
         <script src="data/Hospices_3.js"></script>
-        <script src="data/LNU_4.js"></script>
-        <script src="data/NICU_5.js"></script>
-        <script src="data/SCBU_6.js"></script>
+        <script src="data/NICU_4.js"></script>
+        <script src="data/SCBU_5.js"></script>
+        <script src="data/LNU_6.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:10, minZoom:3
-        }).fitBounds([[46.8422348065988,-20.37498444210371],[61.16499594168178,23.579741968401773]]);
+        }).fitBounds([[48.69220052049542,-14.63017923854858],[58.78635836897768,15.78599775715612]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -170,7 +170,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.7,
-                fillColor: 'rgba(196,163,235,1.0)',
+                fillColor: 'rgba(227,185,222,1.0)',
                 interactive: true,
             }
         }
@@ -225,7 +225,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(125,139,143,1.0)',
+                fillColor: 'rgba(177,0,151,1.0)',
                 interactive: true,
             }
         }
@@ -286,7 +286,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(133,182,111,1.0)',
+                fillColor: 'rgba(13,57,179,1.0)',
                 interactive: true,
             }
         }
@@ -310,7 +310,7 @@
         });
         bounds_group.addLayer(layer_Hospices_3);
         map.addLayer(layer_Hospices_3);
-        function pop_LNU_4(feature, layer) {
+        function pop_NICU_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Institution</strong><br />' + (feature.properties['Institution'] !== null ? autolinker.link(feature.properties['Institution'].toLocaleString()) : '') + '</td>\
@@ -334,9 +334,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_LNU_4_0() {
+        function style_NICU_4_0() {
             return {
-                pane: 'pane_LNU_4',
+                pane: 'pane_NICU_4',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -346,31 +346,31 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(164,113,88,1.0)',
+                fillColor: 'rgba(213,206,0,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_LNU_4');
-        map.getPane('pane_LNU_4').style.zIndex = 404;
-        map.getPane('pane_LNU_4').style['mix-blend-mode'] = 'normal';
-        var layer_LNU_4 = new L.geoJson(json_LNU_4, {
+        map.createPane('pane_NICU_4');
+        map.getPane('pane_NICU_4').style.zIndex = 404;
+        map.getPane('pane_NICU_4').style['mix-blend-mode'] = 'normal';
+        var layer_NICU_4 = new L.geoJson(json_NICU_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_LNU_4',
-            layerName: 'layer_LNU_4',
-            pane: 'pane_LNU_4',
-            onEachFeature: pop_LNU_4,
+            dataVar: 'json_NICU_4',
+            layerName: 'layer_NICU_4',
+            pane: 'pane_NICU_4',
+            onEachFeature: pop_NICU_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_LNU_4_0(feature));
+                return L.circleMarker(latlng, style_NICU_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_LNU_4);
-        map.addLayer(layer_LNU_4);
-        function pop_NICU_5(feature, layer) {
+        bounds_group.addLayer(layer_NICU_4);
+        map.addLayer(layer_NICU_4);
+        function pop_SCBU_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Institution</strong><br />' + (feature.properties['Institution'] !== null ? autolinker.link(feature.properties['Institution'].toLocaleString()) : '') + '</td>\
@@ -394,9 +394,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_NICU_5_0() {
+        function style_SCBU_5_0() {
             return {
-                pane: 'pane_NICU_5',
+                pane: 'pane_SCBU_5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -406,31 +406,31 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(213,180,60,1.0)',
+                fillColor: 'rgba(12,155,19,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_NICU_5');
-        map.getPane('pane_NICU_5').style.zIndex = 405;
-        map.getPane('pane_NICU_5').style['mix-blend-mode'] = 'normal';
-        var layer_NICU_5 = new L.geoJson(json_NICU_5, {
+        map.createPane('pane_SCBU_5');
+        map.getPane('pane_SCBU_5').style.zIndex = 405;
+        map.getPane('pane_SCBU_5').style['mix-blend-mode'] = 'normal';
+        var layer_SCBU_5 = new L.geoJson(json_SCBU_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_NICU_5',
-            layerName: 'layer_NICU_5',
-            pane: 'pane_NICU_5',
-            onEachFeature: pop_NICU_5,
+            dataVar: 'json_SCBU_5',
+            layerName: 'layer_SCBU_5',
+            pane: 'pane_SCBU_5',
+            onEachFeature: pop_SCBU_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_NICU_5_0(feature));
+                return L.circleMarker(latlng, style_SCBU_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_NICU_5);
-        map.addLayer(layer_NICU_5);
-        function pop_SCBU_6(feature, layer) {
+        bounds_group.addLayer(layer_SCBU_5);
+        map.addLayer(layer_SCBU_5);
+        function pop_LNU_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Institution</strong><br />' + (feature.properties['Institution'] !== null ? autolinker.link(feature.properties['Institution'].toLocaleString()) : '') + '</td>\
@@ -454,9 +454,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_SCBU_6_0() {
+        function style_LNU_6_0() {
             return {
-                pane: 'pane_SCBU_6',
+                pane: 'pane_LNU_6',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -466,32 +466,32 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(114,155,111,1.0)',
+                fillColor: 'rgba(205,78,9,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_SCBU_6');
-        map.getPane('pane_SCBU_6').style.zIndex = 406;
-        map.getPane('pane_SCBU_6').style['mix-blend-mode'] = 'normal';
-        var layer_SCBU_6 = new L.geoJson(json_SCBU_6, {
+        map.createPane('pane_LNU_6');
+        map.getPane('pane_LNU_6').style.zIndex = 406;
+        map.getPane('pane_LNU_6').style['mix-blend-mode'] = 'normal';
+        var layer_LNU_6 = new L.geoJson(json_LNU_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SCBU_6',
-            layerName: 'layer_SCBU_6',
-            pane: 'pane_SCBU_6',
-            onEachFeature: pop_SCBU_6,
+            dataVar: 'json_LNU_6',
+            layerName: 'layer_LNU_6',
+            pane: 'pane_LNU_6',
+            onEachFeature: pop_LNU_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SCBU_6_0(feature));
+                return L.circleMarker(latlng, style_LNU_6_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SCBU_6);
-        map.addLayer(layer_SCBU_6);
+        bounds_group.addLayer(layer_LNU_6);
+        map.addLayer(layer_LNU_6);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/SCBU_6.png" /> SCBU': layer_SCBU_6,'<img src="legend/NICU_5.png" /> NICU': layer_NICU_5,'<img src="legend/LNU_4.png" /> LNU': layer_LNU_4,'<img src="legend/Hospices_3.png" /> Hospices': layer_Hospices_3,'<img src="legend/ChildrensHospitals_2.png" /> Children\'s Hospitals': layer_ChildrensHospitals_2,'<img src="legend/NeonatalODN_1.png" /> Neonatal ODN': layer_NeonatalODN_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/LNU_6.png" /> LNU': layer_LNU_6,'<img src="legend/SCBU_5.png" /> SCBU': layer_SCBU_5,'<img src="legend/NICU_4.png" /> NICU': layer_NICU_4,'<img src="legend/Hospices_3.png" /> Hospices': layer_Hospices_3,'<img src="legend/ChildrensHospitals_2.png" /> Children\'s Hospitals': layer_ChildrensHospitals_2,'<img src="legend/NeonatalODN_1.png" /> Neonatal ODN': layer_NeonatalODN_1,"OpenStreetMap": layer_OpenStreetMap_0,}).addTo(map);
         setBounds();
         </script>
     </body>
